@@ -13,7 +13,7 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model){
         String serverTime = new Date().toString();
-        //model.addAttribute("serverTime", serverTime);
+        model.addAttribute("serverTime", serverTime);
         return "home";
     }
 }
