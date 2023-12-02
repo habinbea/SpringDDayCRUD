@@ -32,7 +32,9 @@ public class BoardDAO {
         return template.update(BOARD_UPDATE, new Object[]{vo.getTitle(), vo.getWriter(), vo.getContent(), vo.getSeq()});
     }
     public BoardVO getBoard(int seq) {
-        return template.queryForObject(BOARD_GET, new Object[]{seq}, new BeanPropertyRowMapper<BoardVO>(BoardVO.class));
+        return template.queryForObject(BOARD_GET,
+                new Object[] {seq},
+                new BeanPropertyRowMapper<BoardVO>(BoardVO.class));
     }
     public List<BoardVO> getBoardList() {
         return template.query(BOARD_LIST, new RowMapper<BoardVO>() {

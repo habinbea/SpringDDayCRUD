@@ -9,7 +9,7 @@
 <body>
 
 <h1>Add New Post</h1>
-<form action="../addok" method="post">
+<form action="addok" method="post">
 <table id="edit">
 <tr><td>Title:</td><td><input type="text" name="title"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>

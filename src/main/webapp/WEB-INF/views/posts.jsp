@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@page import="com.example.board.BoardDAO, com.example.board.BoardVO,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -45,6 +45,7 @@
 	<th>Writer</th>
 	<th>Content</th>
 	<th>Regdate</th>
+	<th>View</th>
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
@@ -54,7 +55,8 @@
 		<td>${u.title}</td>
 		<td>${u.writer}</td>
 		<td>${u.content}</td>
-		<td>${u.regdate</td>
+		<td>${u.regdate}</td>
+		<td><a href="view/${u.seq}">View</a></td>
 		<td><a href="editpost/${u.seq}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
 	</tr>
