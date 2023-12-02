@@ -37,7 +37,6 @@ public class BoardController {
     @RequestMapping(value = "/board/editpost/{id}", method = RequestMethod.GET)
     public String editPost(@PathVariable("id") int id, Model model) {
         BoardVO boardVO = boardDAO.getBoard(id);
-        System.out.println(boardVO);
         model.addAttribute("boardVO", boardVO);
         return "editform";
     }
