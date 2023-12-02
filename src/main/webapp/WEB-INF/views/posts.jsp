@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@page import="com.example.board.BoardDAO, com.example.board.BoardVO,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,9 +50,9 @@
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
-<c:forEach items="${list}" var="u">
+<c:forEach items="${list}" var="u" varStatus="status">
 	<tr>
-		<td>${u.seq}</td>
+		<td>${status.index+1}</td>
 		<td>${u.title}</td>
 		<td>${u.writer}</td>
 		<td>${u.content}</td>
