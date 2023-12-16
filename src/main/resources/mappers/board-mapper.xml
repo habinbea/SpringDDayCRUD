@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/
+dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+    <insert id="insertBoard">
+        insert into DDAY (category, event, ffor, writer, memo, ddate)
+        values (#{category} , #{event} , #{ffor}, #{writer} , #{memo} , #{ddate})
+    </insert>
+    <update id="updateBoard">
+        update DDAY
+        set category=#{category}, event=#{event}, ffor=#{ffor}, writer=#{writer}, memo=#{memo}, ddate=#{ddate} where seq=#{seq}
+    </update>
+    <delete id="deleteBoard">
+        delete from DDAY where seq=#{seq}
+    </delete>
+    <select id="getBoard" resultType="board">
+        select * from DDAY where seq=#{seq}
+    </select>
+    <select id="getBoardList" resultType="board">
+        select * from DDAY order by seq desc
+    </select>
+</mapper>

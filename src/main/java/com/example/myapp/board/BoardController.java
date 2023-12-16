@@ -1,5 +1,7 @@
-package com.example.board;
+package com.example.myapp.board;
 
+import com.example.myapp.board.BoardDAO;
+import com.example.myapp.board.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +30,9 @@ public class BoardController {
     public String addPostOK(BoardVO vo) {
         int i = boardDAO.insertBoard(vo);
         if (i == 0)
-            System.out.println("데이터 추가 실패");
+            System.out.println("Add failed!");
         else
-            System.out.println("데이터 추가 성공!!!");
+            System.out.println("Add successful!");
         return "redirect:list";
     }
 

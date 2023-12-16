@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%@page import="com.example.board.BoardDAO, com.example.board.BoardVO,java.util.*"%>
+<%@page import="com.example.myapp.board.BoardDAO, com.example.myapp.board.BoardVO,java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
@@ -25,8 +25,17 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #006bb3;
-  color: white;
+  background-color: #ff9884
+}
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 7rem;
+	height: 2.5rem;
+	margin-top: 1rem;
+	font-size: 1rem;
+	border: black;
+	background-color: #ff9884;
+	cursor: pointer;
 }
 </style>
 <script>
@@ -37,26 +46,29 @@
 </script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>D-Day List</h1>
 
 <table id="list" width="90%">
 <tr>
 	<th>Id</th>
-	<th>Title</th>
+	<th>Category</th>
+	<th>Event</th>
+	<th>For</th>
 	<th>Writer</th>
-	<th>Content</th>
-	<th>Regdate</th>
-	<th>View</th>
+	<th>Memo</th>
+	<th>Date</th>
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
 <c:forEach items="${list}" var="u" varStatus="status">
 	<tr>
 		<td>${status.index+1}</td>
-		<td>${u.title}</td>
+		<td>${u.category}</td>
+		<td>${u.event}</td>
+		<td>${u.ffor}</td>
 		<td>${u.writer}</td>
-		<td>${u.content}</td>
-		<td>${u.regdate}</td>
+		<td>${u.memo}</td>
+		<td>${u.ddate}</td>
 		<td><a href="view/${u.seq}">View</a></td>
 		<td><a href="editpost/${u.seq}">Edit</a></td>
 		<td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
