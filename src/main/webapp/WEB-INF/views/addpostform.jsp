@@ -31,6 +31,7 @@
         #list td input[type="text"],
         #list td input[type="submit"],
         #list td input[type="button"],
+        #list td input[list],
         #list td textarea {
             width: 100%;
             box-sizing: border-box;
@@ -48,10 +49,17 @@
     </style>
 </head>
 <body>
-<h1>Add New Post</h1>
+<h1>Add New Event</h1>
 <form action="addok" method="post">
 <table id="list">
-<tr><td>Category:</td><td><input type="text" name="category"/></td></tr>
+<tr><td>Category:</td><td><input list="categories" name="category" id="category">
+    <datalist id="categories">
+        <option value="Birthday">
+        <option value="Cleaning">
+        <option value="Party">
+        <option value="Travel">
+        <option value="School">
+    </datalist></td></tr>
 <tr><td>Event:</td><td><input type="text" name="event"/></td></tr>
 <tr><td>For:</td><td><input type="text" name="ffor"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>

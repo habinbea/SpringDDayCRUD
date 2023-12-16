@@ -35,6 +35,7 @@
 		#list td input[type="text"],
 		#list td input[type="submit"],
 		#list td input[type="button"],
+		#list td input[list],
 		#list td textarea {
 			width: 100%;
 			box-sizing: border-box;
@@ -53,12 +54,22 @@
 </head>
 <body>
 
-<h1>Edit Form</h1>
+<h1>Edit Event</h1>
 <%--@elvariable id="boardVO" type=""--%>
 <form:form modelAttribute="boardVO" method="POST" action="../editok">
 	<form:hidden path="seq"/>
 	<table id="list">
-	<tr><td>Category</td><td><form:input path="category" /></td></tr>
+	<tr><td>Category</td>
+		<td>
+			<input list="categories" name="category" id="category" value="${boardVO.category}">
+			<datalist id="categories">
+				<option value="Birthday">
+				<option value="Cleaning">
+				<option value="Party">
+				<option value="Travel">
+				<option value="School">
+			</datalist>
+		</td></tr>
 	<tr><td>Event</td><td><form:input path="event" /></td></tr>
 	<tr><td>For</td><td><form:input path="ffor" /></td></tr>
 	<tr><td>Writer</td><td><form:input path="writer" /></td></tr>

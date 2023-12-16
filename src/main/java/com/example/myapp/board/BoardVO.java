@@ -9,7 +9,7 @@ public class BoardVO {
     private String ffor;
     private String writer;
     private String memo;
-    private Date ddate;
+    private String ddate;
     private Date regdate;
 
     public int getSeq() {
@@ -58,11 +58,10 @@ public class BoardVO {
         this.memo = memo;
     }
 
-    public Date getDdate() {
+    public String getDdate() {
         return ddate;
     }
-
-    public void setDdate(Date ddate) {
+    public void setDdate(String ddate) {
         this.ddate = ddate;
     }
     public Date getRegdate() {

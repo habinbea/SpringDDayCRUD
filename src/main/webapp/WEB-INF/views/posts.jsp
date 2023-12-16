@@ -57,6 +57,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 	<th>Writer</th>
 	<th>Memo</th>
 	<th>Date</th>
+	<th>View</th>
 	<th>Edit</th>
 	<th>Delete</th>
 </tr>
