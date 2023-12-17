@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
+import java.util.List;
+
 @Controller
 public class BoardController {
 
@@ -17,7 +23,21 @@ public class BoardController {
 
     @RequestMapping(value = "/board/list", method = RequestMethod.GET)
     public String boardlist(Model model) {
-        model.addAttribute("list", boardDAO.getBoardList());
+        List<BoardVO> list = boardDAO.getBoardList();
+        LocalDate currentDate = LocalDate.now();
+
+        for (BoardVO vo : list) {
+            try {
+                LocalDate ddate = LocalDate.parse(vo.getDdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                long daysBetween = ChronoUnit.DAYS.between(currentDate, ddate);
+                vo.setDaysRemaining(daysBetween);
+            } catch (Exception e) {
+                e.printStackTrace();
+                vo.setDaysRemaining(0); // handle appropriately in the future
+            }
+        }
+        list.sort(Comparator.comparingLong(BoardVO::getDaysRemaining));
+        model.addAttribute("list", list);
         return "posts";
     }
 
@@ -62,6 +82,17 @@ public class BoardController {
     @RequestMapping(value = "/board/view/{id}", method = RequestMethod.GET)
     public String viewPost(@PathVariable("id") int id, Model model) {
         BoardVO boardVO = boardDAO.getBoard(id);
+
+        try {
+            LocalDate currentDate = LocalDate.now();
+            LocalDate ddate = LocalDate.parse(boardVO.getDdate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            long daysRemaining = ChronoUnit.DAYS.between(currentDate, ddate);
+            boardVO.setDaysRemaining(daysRemaining);
+        } catch (Exception e) {
+            e.printStackTrace();
+            boardVO.setDaysRemaining(0); // or handle appropriately
+        }
+
         model.addAttribute("boardVO", boardVO);
         return "view";
     }

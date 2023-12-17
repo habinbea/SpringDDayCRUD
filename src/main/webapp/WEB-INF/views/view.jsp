@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
-<%@page import="com.example.myapp.board.BoardDAO, com.example.myapp.board.BoardVO"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page import="com.example.myapp.board.BoardVO" %>
-
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,16 +53,18 @@
 
 <h1>View Board</h1>
 <table id="list">
+    <tr><td>D-Day</td><td>${boardVO.daysRemaining}</td></tr>
+    <tr><td>Event Date</td><td>${boardVO.ddate}</td></tr>
     <tr><td>Category</td><td>${boardVO.category}</td></tr>
     <tr><td>Event</td><td>${boardVO.event}</td></tr>
     <tr><td>For</td><td>${boardVO.ffor}</td></tr>
     <tr><td>Writer</td><td>${boardVO.writer}</td></tr>
     <tr><td>Memo</td><td>${boardVO.memo}</td></tr>
-    <tr><td>Date</td><td>${boardVO.ddate}</td></tr>
+    <fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd" var="formattedRegdate"/>
+    <tr><td>Registered Date</td><td>${formattedRegdate}</td></tr>
 </table>
 <button type="button" onclick="location.href='../list'">View List</button>
 <button type="button" onclick="location.href='../editpost/${boardVO.seq}'">Edit</button>
-
 
 </body>
 </html>

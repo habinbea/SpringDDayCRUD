@@ -74,7 +74,7 @@
 	<tr><td>For</td><td><form:input path="ffor" /></td></tr>
 	<tr><td>Writer</td><td><form:input path="writer" /></td></tr>
 	<tr><td>Memo</td><td><form:textarea cols="50" rows="5" path="memo" /></td></tr>
-	<tr><td>Date</td><td><form:input path="ddate" /></td></tr>
+	<tr><td>Event Date</td><td><form:input path="ddate" /></td></tr>
 	</table>
 	<input type="submit" value="Edit"/>
 	<input type="button" value="Cancel" onclick="history.back()" />

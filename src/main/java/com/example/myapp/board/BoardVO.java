@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class BoardVO {
     private int seq;
+    private long daysRemaining;
     private String category;
+
     private String event;
     private String ffor;
     private String writer;
@@ -18,7 +20,13 @@ public class BoardVO {
     public void setSeq(int seq) {
         this.seq = seq;
     }
+    public long getDaysRemaining() {
+        return daysRemaining;
+    }
 
+    public void setDaysRemaining(long daysRemaining) {
+        this.daysRemaining = daysRemaining;
+    }
     public String getWriter() {
         return writer;
     }

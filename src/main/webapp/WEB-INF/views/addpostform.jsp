@@ -64,7 +64,7 @@
 <tr><td>For:</td><td><input type="text" name="ffor"/></td></tr>
 <tr><td>Writer:</td><td><input type="text" name="writer"/></td></tr>
 <tr><td>Memo:</td><td><textarea cols="50" rows="5" name="memo"></textarea></td></tr>
-<tr><td>Date:</td><td><input type="date" name="ddate" /></td></tr>
+<tr><td>Event Date:</td><td><input type="date" name="ddate" /></td></tr>
 </table>
     <button type="button" onclick="location.href='list'">View list</button>
     <button type="submit">Add</button>
