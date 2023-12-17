@@ -6,19 +6,56 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <style>
-        img, label { display:inline-block;}
-        label{ width:130px}
-        button{ background-color:blue; color:white;font-size:15px}
+        #list {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        #list td, #list th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align:center;
+        }
+        #list tr:nth-child(even){background-color: #f2f2f2;}
+        #list tr:hover {background-color: #ddd;}
+        #list th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #006bb3;
+            color: white;
+        }
+        #list td:first-child {
+            background-color: #ff9884;
+        }
+        #list td input[type="text"],
+        #list td input[type="submit"],
+        #list td input[type="button"],
+        #list td input[type="password"],
+        #list td textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button, input[type="button"], input[type="submit"], input[type="reset"] {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            width: 7rem;
+            height: 2rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+            border: black;
+            background-color: #ff9884;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-<div style='width:100%;text-align:center;padding-top:100px'>
-    <form method="post" action="loginOk">
-        <div><label>User ID: </label><input type='text' name='userid' /></div>
-        <div><label>Password: </label>
-            <input type='password' name='password' /></div>
-        <button type='submit'>login</button>
-    </form>
-</div>
+<h1>Login</h1>
+<form action="loginOk" method="post">
+    <table id="list">
+        <tr><td>User ID: </td><td><input type='text' name='userid' /></td></tr>
+        <tr><td>Password: </td><td><input type='password' name='password' /></td></tr>
+    </table>
+    <button type='submit'>Login</button>
+</form>
 </body>
 </html>
